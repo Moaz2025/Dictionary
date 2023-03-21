@@ -103,20 +103,16 @@ public class AVL_Tree<T extends Comparable<T>> implements ITree<T> {
         node.balance = leftNodeHeight - rightNodeHeight;
     }
     private AVL_Node<T> balance (AVL_Node<T> node) {
-        if (node.balance < -1) {
-            if (node.right.balance < 0) {
-                return leftRotate(node);
-            } else if (node.right.balance > 0){
+        if (node.balance == -2) {
+            if (node.right.balance > 0) {
                 node.right = rightRotate(node.right);
-                return leftRotate(node);
             }
-        } else if (node.balance > 1){
-            if (node.left.balance > 0) {
-                return rightRotate(node);
-            } else if (node.left.balance < 0){
+            return leftRotate(node);
+        } else if (node.balance == 2){
+            if (node.left.balance < 0) {
                 node.left = leftRotate(node.left);
-                return rightRotate(node);
             }
+            return rightRotate(node);
         }
 
         return node;
@@ -126,12 +122,16 @@ public class AVL_Tree<T extends Comparable<T>> implements ITree<T> {
         AVL_Node<T> child = node.right;
         node.right = child.left;
         child.left = node;
+        update(node);
+        update(child);
         return child;
     }
     private AVL_Node<T> rightRotate(AVL_Node<T> node){
         AVL_Node<T> child = node.left;
         node.left = child.right;
         child.right = node;
+        update(node);
+        update(child);
         return child;
     }
     private AVL_Node<T> digRight(AVL_Node<T> node){
