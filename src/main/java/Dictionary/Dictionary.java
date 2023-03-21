@@ -15,7 +15,7 @@ public class Dictionary<T extends Comparable<T>> {
         if (type.equals("AVL"))
             this.tree = new AVL_Tree<>();
         else if (type.equals("RB"))
-            this.tree = new AVL_Tree<>();
+            this.tree = new RB_Tree<>();
         else
             System.out.println("Invalid tree type");
     }
