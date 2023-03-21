@@ -91,7 +91,11 @@ public class RB_Tree<T extends Comparable<T>> implements ITree<T> {
         RB_Node<T> parent = node.parent;
 
         // Case 1: parent is null or parent is black
-        if (parent == null || parent.color == Black)
+        if (parent == null){
+            node.color = Black;
+            return;
+        }
+        if (parent.color == Black)
             return;
 
         RB_Node<T> grandparent = parent.parent;
@@ -324,8 +328,9 @@ public class RB_Tree<T extends Comparable<T>> implements ITree<T> {
     private long RBheight(RB_Node<T> node) {
         if (node == null)
             return 0;
-        long leftHeight = RBheight(node.left);
-        long rightHeight = RBheight(node.right);
+
+        long leftHeight = (node.left == null)? -1:RBheight(node.left);
+        long rightHeight = (node.right == null)? -1:RBheight(node.right);
         return Math.max(leftHeight, rightHeight) + 1;
     }
 
@@ -337,7 +342,10 @@ public class RB_Tree<T extends Comparable<T>> implements ITree<T> {
         this.root = null;
         this.size = 0;
     }
-
+////////////////isEmpty////////////////
+    boolean isEmpty() {
+       return root == null;
+    }
     public void traverse(){ this.inorder(this.root);}
     private void inorder(RB_Node<T> node) {
 
