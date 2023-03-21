@@ -1,7 +1,7 @@
 package BBSTs;
 
 public class RB_Tree<T extends Comparable<T>> implements ITree<T> {
-    public RB_Node<T> root;
+    public RB_Node<T> root = null;
     long size;
     boolean Black = false, Red = true;
 
@@ -20,6 +20,9 @@ public class RB_Tree<T extends Comparable<T>> implements ITree<T> {
         root.left = null;
         root.right = null;
         size = 1;
+    }
+    public RB_Tree() {
+        size = 0;
     }
 
     private class NilRB_Node<T> extends RB_Node<T> {
@@ -57,6 +60,14 @@ public class RB_Tree<T extends Comparable<T>> implements ITree<T> {
 
     /////////////////////// insert///////////////////////
     public boolean insert(T key) {
+        if(root == null){
+            root = new RB_Node<>(key);
+            root.color = Black;
+            root.left = null;
+            root.right = null;
+            size = 1;
+            return true;
+        }
         RB_Node<T> node = root, parent = null;
 
         while (node != null) {
