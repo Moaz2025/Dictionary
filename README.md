@@ -1,4 +1,4 @@
-# Balanced_Binary_Search_Trees
+# Dictionary
 
 ## Description
 Java dictionary implemented using two types of balanced binary search trees: AVL and Red-Black trees handling basic operations such as searching, insertion, deletion, batch inseration and batch deletion of items with ability to investigate the properity of tree structure.
