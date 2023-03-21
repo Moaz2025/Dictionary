@@ -20,9 +20,7 @@ public class Dictionary<T extends Comparable<T>> {
             System.out.println("Invalid tree type");
     }
 
-    public boolean search(T key) {
-        return tree.delete(key);
-    }
+    public boolean search(T key) { return tree.search(key); }
 
     public boolean insert(T key){
         return tree.insert(key);
@@ -38,8 +36,8 @@ public class Dictionary<T extends Comparable<T>> {
         int insert = 0, exist = 0;
 
         while (rd.hasNextLine()) {
-            String data = rd.nextLine();
-            if(tree.insert((T)data))
+            T data = (T)rd.nextLine();
+            if(tree.insert(data))
                 insert++;
             else
                 exist++;
@@ -67,8 +65,12 @@ public class Dictionary<T extends Comparable<T>> {
     public long size(){
         return tree.size();
     }
+
     public long height() {
         return tree.height();
     }
+
+    public void clear() { tree.clear(); }
+
     public void traverse(){ tree.traverse(); }
 }

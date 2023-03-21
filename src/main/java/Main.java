@@ -33,7 +33,7 @@ public class Main {
         while (op != 0) {
             System.out.println("Enter 1 for search, 2 for insert, 3 for delete," +
                     " 4 for batch insert, 5 for batch delete," +
-                    " 6 for tree size, 7 for tree height, 8 for inorder traversal, 0 to exit");
+                    " 6 for tree size, 7 for tree height, 8 for inorder traversal, 9 for clear, 0 to exit");
             op = sc.nextInt();
             switch (op) {
                 case 1:
@@ -61,12 +61,14 @@ public class Main {
                         System.out.println("Doesn't exist");
                     break;
                 case 4:
+                    System.out.println("Enter the file path");
                     key = sc.next();
                     result = dictionary.batchInsert(key);
                     System.out.println(result[0] + " Inserted");
                     System.out.println(result[1] + " Exist");
                     break;
                 case 5:
+                    System.out.println("Enter the file path");
                     key = sc.next();
                     result = dictionary.batchDelete(key);
                     System.out.println(result[0] + " Deleted");
@@ -77,7 +79,12 @@ public class Main {
                 case 7:
                     System.out.println("Height: " + dictionary.height());
                 case 8:
+                    System.out.print("Traversal: ");
                     dictionary.traverse();
+                    break;
+                case 9:
+                    dictionary.clear();
+                    System.out.println("Cleared");
                     break;
                 default:
                     break;

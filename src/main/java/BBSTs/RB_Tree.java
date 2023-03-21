@@ -14,18 +14,11 @@ public class RB_Tree<T extends Comparable<T>> implements ITree<T> {
         public RB_Node (K value){ this.value = value; }
     }
 
-    public RB_Tree(T value) {
-        root = new RB_Node<>(value);
-        root.color = Black;
-        root.left = null;
-        root.right = null;
-        size = 1;
-    }
     public RB_Tree() {
         size = 0;
     }
 
-    private class NilRB_Node<T> extends RB_Node<T> {
+    private class NilRB_Node extends RB_Node<T> {
         private NilRB_Node() {
             super(null);
             this.color = Black;
@@ -44,7 +37,7 @@ public class RB_Tree<T extends Comparable<T>> implements ITree<T> {
         if (key == null)
             return false;
 
-        return contains(root, key);
+        return contains(this.root, key);
     }
     private boolean contains(RB_Node<T> node, T key) {
         while (node != null) {
@@ -60,14 +53,15 @@ public class RB_Tree<T extends Comparable<T>> implements ITree<T> {
 
     /////////////////////// insert///////////////////////
     public boolean insert(T key) {
-        if(root == null){
-            root = new RB_Node<>(key);
-            root.color = Black;
-            root.left = null;
-            root.right = null;
-            size = 1;
+        if(this.root == null){
+            this.root = new RB_Node<>(key);
+            this.root.color = Black;
+            this.root.left = null;
+            this.root.right = null;
+            this.size = 1;
             return true;
         }
+
         RB_Node<T> node = root, parent = null;
 
         while (node != null) {
@@ -80,11 +74,9 @@ public class RB_Tree<T extends Comparable<T>> implements ITree<T> {
                 return false;
         }
 
-        RB_Node<T> newRB_Node = new RB_Node(key);
+        RB_Node<T> newRB_Node = new RB_Node<>(key);
         newRB_Node.color = Red;
-        if (parent == null)
-            root = newRB_Node;
-        else if (parent.value.compareTo(key) > 0)
+        if (parent.value.compareTo(key) > 0)
             parent.left = newRB_Node;
         else
             parent.right = newRB_Node;
@@ -149,7 +141,7 @@ public class RB_Tree<T extends Comparable<T>> implements ITree<T> {
 
     ///////////////// Delete////////////////////////////////
     public boolean delete(T key) {
-        RB_Node<T> node = root;
+        RB_Node<T> node = this.root;
 
         while (node != null && node.value.compareTo(key) != 0) {
             if (node.value.compareTo(key) > 0)
@@ -188,7 +180,7 @@ public class RB_Tree<T extends Comparable<T>> implements ITree<T> {
 
     private void fixDelete(RB_Node<T> node) {
         // Case 1
-        if (node == root)
+        if (node == this.root)
             return;
 
         RB_Node<T> sibling = getSibling(node);
@@ -310,7 +302,7 @@ public class RB_Tree<T extends Comparable<T>> implements ITree<T> {
 
     private void replaceParentsChild(RB_Node<T> parent, RB_Node<T> oldChild, RB_Node<T> newChild) {
         if (parent == null)
-            root = newChild;
+            this.root = newChild;
         else if (parent.left == oldChild)
             parent.left = newChild;
         else
@@ -327,7 +319,7 @@ public class RB_Tree<T extends Comparable<T>> implements ITree<T> {
 
     //////////////// height///////////////////////
     public long height() {
-        return RBheight(root);
+        return RBheight(this.root);
     }
     private long RBheight(RB_Node<T> node) {
         if (node == null)
@@ -337,22 +329,13 @@ public class RB_Tree<T extends Comparable<T>> implements ITree<T> {
         return Math.max(leftHeight, rightHeight) + 1;
     }
 
-    //////// isEmpty/////////////////
-    boolean isEmpty() {
-        return root == null;
-    }
-
     ////////// clear//////////////////////
-    void clear() {
-        root.left = null;
-        root.right = null;
-        root.parent = null;
-        root = null;
-        size = 0;
-    }
-
-    public RB_Node<T> getRoot() {
-        return root;
+    public void clear() {
+        this.root.left = null;
+        this.root.right = null;
+        this.root.parent = null;
+        this.root = null;
+        this.size = 0;
     }
 
     public void traverse(){ this.inorder(this.root);}

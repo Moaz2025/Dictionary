@@ -6,5 +6,6 @@ public interface ITree<T>{
     boolean delete(T key);
     long size();
     long height();
+    void clear();
     void traverse();
 }

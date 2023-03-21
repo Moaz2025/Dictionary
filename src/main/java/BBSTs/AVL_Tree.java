@@ -18,7 +18,7 @@ public class AVL_Tree<T extends Comparable<T>> implements ITree<T> {
         if (key == null)
             return false;
 
-        return contains(root, key);
+        return contains(this.root, key);
     }
     private boolean contains(AVL_Node<T> node, T key){
         if (node == null)
@@ -62,8 +62,8 @@ public class AVL_Tree<T extends Comparable<T>> implements ITree<T> {
         if (key == null)
             return false;
 
-        if (contains(root, key)){
-            this.root = delete(root, key);
+        if (contains(this.root, key)){
+            this.root = delete(this.root, key);
             this.size--;
             return true;
         }
@@ -146,6 +146,13 @@ public class AVL_Tree<T extends Comparable<T>> implements ITree<T> {
         if (this.root == null)
             return 0;
         return this.root.height;
+    }
+
+    public void clear() {
+        this.root.left = null;
+        this.root.right = null;
+        this.root = null;
+        this.size = 0;
     }
 
     public void traverse(){
