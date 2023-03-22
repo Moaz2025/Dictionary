@@ -47,6 +47,7 @@ public class TimeAnalysisTest {
             System.out.println("Tree size: " + i);
             System.out.println("AVL: height= " + (long)avlResults[0] + ", mean insert time= " + avlResults[1] + ", mean delete time= " + avlResults[2]);
             System.out.println("RB: height= " + (long)rbResults[0] + ", mean insert time= " + rbResults[1] + ", mean delete time= " + rbResults[2]);
+            System.out.println();
         }
     }
 }
