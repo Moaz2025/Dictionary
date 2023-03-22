@@ -76,8 +76,10 @@ public class Main {
                     break;
                 case 6:
                     System.out.println("Size: " + dictionary.size());
+                    break;
                 case 7:
                     System.out.println("Height: " + dictionary.height());
+                    break;
                 case 8:
                     System.out.print("Traversal: ");
                     dictionary.traverse();
