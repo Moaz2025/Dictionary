@@ -1,7 +1,7 @@
 # Dictionary
 
 ## Description
-Java dictionary implemented using two types of balanced binary search trees: AVL and Red-Black trees handling basic operations such as searching, insertion, deletion, batch insertion and batch deletion of items with ability to investigate the property of tree structure.
+Java dictionary implemented using two types of balanced binary search trees: AVL and Red-Black trees handling basic operations such as searching, insertion, deletion, batch insertion and batch deletion of items with ability to investigate properties of tree structure.
 CLI is implemented so that the user can interact with the dictionary and do the basic operations on it.
 The type of tree is determined by the user at the start of application and each tree implements the same interface so that they are obligated to introduce the same set of operations but with each tree own implementation according to the logic of the used tree.
 A GUI is a next step to be made using one of java user iterface libraries.
