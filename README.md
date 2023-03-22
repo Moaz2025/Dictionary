@@ -53,6 +53,7 @@ Tests are done using JUnit5 covering the common and edge cases in both implement
 BBST and AVL tree:
 
   * https://www.programiz.com/dsa/avl-tree
+  * https://www.happycoders.eu/algorithms/avl-tree-java
   * https://youtu.be/Qmt0QwzEmh0
 
 Red-Black tree:
