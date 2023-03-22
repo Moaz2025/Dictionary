@@ -27,3 +27,41 @@ colors in a way that satisfies certain properties, which collectively constrain 
 the tree can become in the worst case. When the tree is modified, the new tree is subsequently
 rearranged (using rotation) and repainted to restore the coloring properties. The properties are
 designed in such a way that this rearranging and recoloring can be performed efficiently.
+
+## Methods
+Java interface defines standard Binary Balanced Search Tree (BBST) data structure that stores elements of generic type to allow flexibilty considering the used data type. The interface provides the following set of methods:
+
+`boolean search(T key)`: This method takes a key of generic type as input and returns a boolean value indicating whether the key is present in the BBST or not. If the key is present, it returns true, otherwise false.
+
+`boolean insert(T key)`: This method takes a key of generic type as input and inserts it into the BBST if it is not already present. If the key is inserted successfully, it returns true, otherwise false.
+
+`boolean delete(T key)`: This method takes a key of generic type as input and deletes it from the BBST if it is present. If the key is deleted successfully, it returns true, otherwise false.
+
+`long size()`: This method returns the number of nodes currently stored in the BBST.
+
+`long height()`: This method returns the height of the BBST, which is the maximum depth of the tree from the root node to the deepest leaf node.
+
+`void clear()`: This method removes all elements from the BBST, leaving an empty tree.
+
+`void traverse()`: This method traverses the BBST and visits each node in a specific order. The order in which the nodes are visited is not specified by the interface and depends on the required implementation of traversal.
+
+## Testing
+Tests are done using JUnit5 covering the common and edge cases in both implementations of BBST: AVL and Red-Black trees, testing different user scenarios and evaluating each method in the tree individually.
+
+## References
+
+BBST and AVL tree:
+
+  * https://www.programiz.com/dsa/avl-tree
+  * https://youtu.be/Qmt0QwzEmh0
+
+Red-Black tree:
+
+Generics:
+
+  * https://www.geeksforgeeks.org/generics-in-java/
+  * https://youtu.be/K1iu1kXkVoA
+
+JUnit:
+
+  * https://youtu.be/vZm0lHciFsQ
