@@ -125,6 +125,131 @@ public class RBTreeTest {
         assertEquals(1, tree.height());
         tree.traverse();
     }
+    @Test
+    void testDeleteLeafNode() {
+        RB_Tree<Integer> tree = new RB_Tree<>();
+        assertTrue(tree.insert(10));
+        assertTrue(tree.insert(5));
+        assertTrue(tree.insert(15));
+        assertTrue(tree.insert(2));
+        assertTrue(tree.insert(7));
+        assertTrue(tree.insert(12));
+        assertTrue(tree.insert(17));
+        assertTrue(tree.delete(2));
+        assertFalse(tree.search(2));
+        tree.traverse();
+    }
+
+    @Test
+    void testDeleteNodeWithOneChild() {
+        RB_Tree<Integer> tree = new RB_Tree<>();
+        assertTrue(tree.insert(10));
+        assertTrue(tree.insert(5));
+        assertTrue(tree.insert(15));
+        assertTrue(tree.insert(2));
+        assertTrue(tree.insert(7));
+        assertTrue(tree.insert(12));
+        assertTrue(tree.insert(17));
+        assertTrue(tree.delete(2));
+        assertFalse(tree.search(2));
+        assertTrue(tree.search(15));
+        tree.traverse();
+    }
+
+    @Test
+    void testDeleteNodeWithTwoChildren() {
+        RB_Tree<Integer> tree = new RB_Tree<>();
+        assertTrue(tree.insert(10));
+        assertTrue(tree.insert(5));
+        assertTrue(tree.insert(15));
+        assertTrue(tree.insert(2));
+        assertTrue(tree.insert(7));
+        assertTrue(tree.insert(12));
+        assertTrue(tree.insert(17));
+        assertTrue(tree.delete(2));
+        assertFalse(tree.search(2));
+        assertTrue(tree.search(5));
+        tree.traverse();
+    }
+
+    @Test
+    void testDeleteRoot() {
+        RB_Tree<Double> tree = new RB_Tree<>();
+        assertTrue(tree.insert(11.2113));
+        assertTrue(tree.insert(3.22423));
+        assertTrue(tree.insert(30.757));
+        assertTrue(tree.insert(1.5634));
+        assertTrue(tree.insert(8.066));
+        assertTrue(tree.insert(12.9087));
+        assertTrue(tree.insert(56.234));
+        assertTrue(tree.delete(11.2113));
+        assertFalse(tree.search(11.2113));
+        tree.traverse();
+    }
+    @Test
+    void testDeleteLeafNodeWithRebalancing() {
+        RB_Tree<String> tree = new RB_Tree<>();
+        assertTrue(tree.insert("apple"));
+        assertTrue(tree.insert("banana"));
+        assertTrue(tree.insert("cherry"));
+        assertTrue(tree.insert("dates"));
+        assertTrue(tree.insert("elderberry"));
+        assertTrue(tree.insert("fig"));
+        assertTrue(tree.insert("grape"));
+        assertTrue(tree.insert("kiwi"));
+        assertTrue(tree.delete("dates"));
+        assertFalse(tree.search("dates"));
+        tree.traverse();
+    }
+
+    @Test
+    void testDeleteNodeWithOneChildAndRebalancing() {
+        RB_Tree<Integer> tree = new RB_Tree<>();
+        assertTrue(tree.insert(10));
+        assertTrue(tree.insert(5));
+        assertTrue(tree.insert(15));
+        assertTrue(tree.insert(2));
+        assertTrue(tree.insert(7));
+        assertTrue(tree.insert(12));
+        assertTrue(tree.insert(17));
+        assertTrue(tree.delete(15));
+        assertFalse(tree.search(15));
+        tree.traverse();
+    }
+
+    @Test
+    void testDeleteNodeWithTwoChildrenAndRebalancing() {
+        AVL_Tree<Integer> tree = new AVL_Tree<>();
+        assertTrue(tree.insert(10));
+        assertTrue(tree.insert(5));
+        assertTrue(tree.insert(15));
+        assertTrue(tree.insert(2));
+        assertTrue(tree.insert(7));
+        assertTrue(tree.insert(12));
+        assertTrue(tree.insert(17));
+        assertTrue(tree.delete(5));
+        assertFalse(tree.search(5));
+    }
+
+    @Test
+    void testDeleteNodeWithTwoChildrenAndSubsequentRebalancing() {
+        RB_Tree<Character> tree = new RB_Tree<>();
+        assertTrue(tree.insert('e'));
+        assertTrue(tree.insert('c'));
+        assertTrue(tree.insert('m'));
+        assertTrue(tree.insert('a'));
+        assertTrue(tree.insert('d'));
+        assertTrue(tree.insert('i'));
+        assertTrue(tree.insert('o'));
+        assertTrue(tree.insert('g'));
+        assertTrue(tree.insert('l'));
+        assertTrue(tree.delete('m'));
+        assertFalse(tree.search('m'));
+        tree.traverse();
+    }
+
+
+
 
     //////////insert problems ////////
 
@@ -226,4 +351,5 @@ public class RBTreeTest {
         System.out.println();
         tree.traverse();//9B 17B 19B 24R 75R 81B
     }
+    
 }
