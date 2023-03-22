@@ -51,18 +51,18 @@ Tests are done using JUnit5 covering the common and edge cases in both implement
 ## References
 
 BBST and AVL tree:
-
   * https://www.programiz.com/dsa/avl-tree
   * https://www.happycoders.eu/algorithms/avl-tree-java
   * https://youtu.be/Qmt0QwzEmh0
 
 Red-Black tree:
+  * https://www.happycoders.eu/algorithms/red-black-tree-java
+  * https://youtu.be/qvZGUFHWChY
 
 Generics:
-
   * https://www.geeksforgeeks.org/generics-in-java/
   * https://youtu.be/K1iu1kXkVoA
 
 JUnit:
-
+  * https://www.simplilearn.com/tutorials/java-tutorial/what-is-junit
   * https://youtu.be/vZm0lHciFsQ
