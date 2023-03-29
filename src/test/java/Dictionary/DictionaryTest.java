@@ -70,8 +70,8 @@ public class DictionaryTest {
 
     @Test
     void testBatch() throws IOException {
-        String path1 = "C:\\Users\\mosta\\Desktop\\Dictionary\\Dictionary-main\\src\\test\\java\\Dictionary\\batchInsertTest.txt";
-        String path2 =  "C:\\Users\\mosta\\Desktop\\Dictionary\\Dictionary-main\\src\\test\\java\\Dictionary\\batchDeleteTest.txt";
+        String path1 = "C:\\Users\\mosta\\Desktop\\Dict\\Dictionary\\src\\test\\java\\Dictionary\\batchInsertTest.txt";
+        String path2 =  "C:\\Users\\mosta\\Desktop\\Dict\\Dictionary\\src\\test\\java\\Dictionary\\batchDeleteTest.txt";
         Dictionary<String> dict1 = new Dictionary<String>();
         Dictionary<String> dict2 = new Dictionary<String>();
         long[] res1, res2;

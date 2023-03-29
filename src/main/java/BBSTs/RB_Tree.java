@@ -1,9 +1,9 @@
 package BBSTs;
 
 public class RB_Tree<T extends Comparable<T>> implements ITree<T> {
-    public RB_Node<T> root = null;
-    long size;
-    boolean Black = false, Red = true;
+    private RB_Node<T> root = null;
+    private long size;
+    private boolean Black = false, Red = true;
 
     private static class RB_Node<K>{
         public K value;
@@ -87,7 +87,7 @@ public class RB_Tree<T extends Comparable<T>> implements ITree<T> {
         return true;
     }
 
-    public void fixInsert(RB_Node<T> node) {
+    private void fixInsert(RB_Node<T> node) {
         RB_Node<T> parent = node.parent;
 
         // Case 1: parent is null or parent is black
@@ -343,7 +343,7 @@ public class RB_Tree<T extends Comparable<T>> implements ITree<T> {
         this.size = 0;
     }
 ////////////////isEmpty////////////////
-    boolean isEmpty() {
+    public boolean isEmpty() {
        return root == null;
     }
     public void traverse(){ this.inorder(this.root);}
