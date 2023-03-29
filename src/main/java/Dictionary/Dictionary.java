@@ -4,9 +4,8 @@ import BBSTs.AVL_Tree;
 import BBSTs.ITree;
 import BBSTs.RB_Tree;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class Dictionary<T extends Comparable<T>> {
     ITree<T> tree;
@@ -21,7 +20,6 @@ public class Dictionary<T extends Comparable<T>> {
     }
 
     public boolean search(T key) { return tree.search(key); }
-
     public boolean insert(T key){
         return tree.insert(key);
     }
@@ -30,36 +28,50 @@ public class Dictionary<T extends Comparable<T>> {
         return tree.delete(key);
     }
 
-    public int[] batchInsert(String filePath) throws FileNotFoundException {
-        File file = new File(filePath);
-        Scanner rd = new Scanner(file);
-        int insert = 0, exist = 0;
+    public long[] batchInsert(String filePath) throws IOException {
+        long insert = 0, exist = 0, startTime;
 
-        while (rd.hasNextLine()) {
-            T data = (T)rd.nextLine();
+        File file = new File(filePath);
+        FileInputStream fl = new FileInputStream(file);
+        InputStreamReader st = new InputStreamReader(fl, StandardCharsets.UTF_8);
+        BufferedReader rd = new BufferedReader(st);
+        String key;
+
+        startTime = System.currentTimeMillis();
+        while ((key = rd.readLine()) != null) {
+            T data = (T)key;
             if(tree.insert(data))
                 insert++;
             else
                 exist++;
         }
+        System.out.println("Time taken: " + (System.currentTimeMillis() - startTime) + " ms");
 
         rd.close();
-        return new int[]{insert, exist};
+        return new long[]{insert, exist};
     }
 
-    public int[] batchDelete(String filePath) throws FileNotFoundException {
+    public long[] batchDelete(String filePath) throws IOException {
+        long delete = 0, nonExist = 0, startTime;
+
         File file = new File(filePath);
-        Scanner rd = new Scanner(file);
-        int delete = 0, nonExist = 0;
-        while (rd.hasNextLine()) {
-            String data = rd.nextLine();
-            if(tree.delete((T)data))
+        FileInputStream fl = new FileInputStream(file);
+        InputStreamReader st = new InputStreamReader(fl, StandardCharsets.UTF_8);
+        BufferedReader rd = new BufferedReader(st);
+        String key;
+
+        startTime = System.currentTimeMillis();
+        while ((key = rd.readLine()) != null) {
+            T data = (T)key;
+            if(tree.delete(data))
                 delete++;
             else
                 nonExist++;
         }
+        System.out.println("Time taken: " + (System.currentTimeMillis() - startTime) + " ms");
+
         rd.close();
-        return new int[]{delete, nonExist};
+        return new long[]{delete, nonExist};
     }
 
     public long size(){

@@ -1,16 +1,16 @@
 import Dictionary.Dictionary;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
         Dictionary<String> dictionary = new Dictionary<String>();
 
         int type = -1, op = -1;
-        int[] result;
+        long[] result;
         String key;
 
         while (type != 1 && type != 2) {
