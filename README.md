@@ -1,10 +1,10 @@
 # Dictionary
 
 ## Description
-Java dictionary implemented using two types of balanced binary search trees: AVL and Red-Black trees handling basic operations such as searching, insertion, deletion, batch insertion and batch deletion of items with ability to investigate properties of tree structure.
+Java dictionary implemented using two types of balanced binary search trees: AVL and Red-Black trees handling basic operations such as searching, insertion, deletion, batch insertion and batch deletion of items with the ability to investigate properties of the tree structure.
 CLI is implemented so that the user can interact with the dictionary and do the basic operations on it.
-The type of tree is determined by the user at the start of application and each tree implements the same interface so that they are obligated to introduce the same set of operations but with each tree own implementation according to the logic of the used tree.
-A GUI is a next step to be made using one of java user iterface libraries.
+The type of tree is determined by the user at the start of the application and each tree implements the same interface so that they are obligated to introduce the same set of operations but with each tree's own implementation according to the logic of the used tree.
+A GUI is the next step to be made using one of Java's user interface libraries.
 
 ## Definitions
 ### AVL Tree
@@ -19,17 +19,17 @@ The balance of an AVL tree can be maintained with a simple modification to the t
 as a rotation.
 
 ### Red-Black Tree
-A red black tree is a kind of self-balancing binary search tree in computer science. Each node of
-the binary tree has an extra bit, and that bit is often interpreted as the color (red or black) of
-the node. These color bits are used to ensure the tree remains approximately balanced during
+A red-black tree is a self-balancing binary search tree in computer science. Each node of
+the binary tree has an extra bit, and that bit is often interpreted as the colour (red or black) of
+the node. These colour bits are used to ensure the tree remains approximately balanced during
 insertions and deletions. Balance is preserved by painting each node of the tree with one of two
-colors in a way that satisfies certain properties, which collectively constrain how unbalanced
+colours in a way that satisfies certain properties, which collectively constrain how unbalanced
 the tree can become in the worst case. When the tree is modified, the new tree is subsequently
-rearranged (using rotation) and repainted to restore the coloring properties. The properties are
-designed in such a way that this rearranging and recoloring can be performed efficiently.
+rearranged (using rotation) and repainted to restore the colouring properties. The properties are
+designed in such a way that this rearranging and recolouring can be performed efficiently.
 
 ## Methods
-Java interface defines standard Binary Balanced Search Tree (BBST) data structure that stores elements of generic type to allow flexibilty considering the used data type. The interface provides the following set of methods:
+Java interface defines standard Binary Balanced Search Tree (BBST) data structure that stores elements of generic type to allow flexibility considering the used data type. The interface provides the following set of methods:
 
 `boolean search(T key)`: This method takes a key of generic type as input and returns a boolean value indicating whether the key is present in the BBST or not. If the key is present, it returns true, otherwise false.
 
@@ -66,3 +66,8 @@ Generics:
 JUnit:
   * https://www.simplilearn.com/tutorials/java-tutorial/what-is-junit
   * https://youtu.be/vZm0lHciFsQ
+
+## Contributors
+- [Moaz AbdulFattah](https://www.github.com/Moaz2025)
+- [Mostafa Galal](https://github.com/MostafaGalal1)
+- [Mohamed Kamal](https://github.com/)
